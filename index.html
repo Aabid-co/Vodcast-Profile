@@ -1,622 +1,2688 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>PodCreator Platform UI Demo</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    :root {
-      --primary: #5c27fe;
-      --accent: #00d08a;
-      --danger: #fd3259;
-      --bg: #f6f7fb;
-      --panel: #fff;
-      --dark-bg: #141625;
-      --dark-panel: #23263c;
-      --text: #15183b;
-      --muted: #6b7280;
-      --shadow: 0 2px 8px 0 rgba(90,99,120,.08);
-      --radius: 1.2rem;
-    }
-    body {
-      margin: 0;
-      font-family: 'Inter', sans-serif;
-      background: var(--bg);
-      color: var(--text);
-    }
-    /* Generic */
-    .flex { display: flex; }
-    .center { justify-content: center; align-items: center; }
-    .shadow { box-shadow: var(--shadow); }
-    .btn {
-      background: var(--primary);
-      color: #fff;
-      border: none;
-      padding: .65rem 1.2rem;
-      border-radius: .6rem;
-      font-weight: 600;
-      cursor: pointer;
-      transition: background 0.2s;
-    }
-    .btn:active { background: #4635a5; }
-    .btn-accent { background: var(--accent);}
-    .btn-danger { background: var(--danger);}
-    .btn-outline{
-      background: none;
-      border: 1.5px solid var(--primary);
-      color: var(--primary);
-      padding: .55rem 1.1rem;
-    }
-    .badge {
-      background: var(--primary);
-      color: #fff;
-      border-radius: .6rem;
-      padding: 0 .6em;
-      font-size: .9em;
-      margin-left: .5em;
-      vertical-align: middle;
-    }
-    .inline-list li { display: inline-block; margin-right: 1.5em; }
-    .muted { color: var(--muted); }
-    .avatar {
-      width: 38px; height: 38px;
-      object-fit: cover;
-      border-radius: 50%;
-      border: 2px solid #e1e1f0;
-    }
-    /* Sidebar */
-    .sidebar {
-      width: 240px;
-      background: var(--panel);
-      height: 100vh;
-      padding: 2rem 0 1rem 0;
-      box-shadow: 2px 0px 8px 0 rgba(60,70,110,0.05);
-      position: fixed; top: 0; left: 0;
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-      z-index: 1336;
-    }
-    .sidebar .nav-group {
-      display: flex; flex-direction: column; gap: 1.1rem;
-      margin-top: 1rem;
-    }
-    .sidebar .nav-link {
-      color: var(--text);
-      text-decoration: none;
-      text-align: left;
-      font-size: 1.07rem;
-      font-weight: 500;
-      padding: .55rem 2rem;
-      border-left: 2.5px solid transparent;
-      transition: background .15s;
-      border-radius: 0 1em 1em 0;
-      display: flex;
-      align-items: center;
-      gap: .9em;
-    }
-    .sidebar .nav-link.active,
-    .sidebar .nav-link:hover {
-      background: #ebe8fd;
-      border-left: 2.5px solid var(--primary);
-    }
-    .record-btn {
-      background: var(--accent);
-      color: #fff;
-      font-weight: 600;
-      margin: 1rem 2rem;
-      border-radius: .9rem;
-      padding: .8rem 0;
-      display: block;
-      text-align: center;
-      text-decoration: none;
-    }
-    /* Header */
-    .header {
-      position: fixed; top: 0; left: 240px; height: 62px; right: 0;
-      background: var(--panel);
-      border-bottom: 1px solid #ececec;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 0 2rem;
-      z-index: 1201;
-    }
-    .header .profile-area { display: flex; align-items: center; gap: 1.2em; }
-    .header .notify {
-      position: relative;
-      margin-left: 1em;
-      font-size: 1.3em;
-      color: var(--text);
-      cursor: pointer;
-    }
-    .header .notify .badge {
-      position: absolute; top: -7px; right: -7px;
-      background: var(--danger);
-      font-size: .75em;
-      padding: 2px 5px;
-    }
-    .header .dropdown {
-      background: none;
-      border: none;
-      font-weight: 500;
-      font-size: 1.05em;
-      color: var(--primary);
-      cursor: pointer;
-    }
-    /* Main Content */
-    .main-content {
-      margin-left: 240px;
-      margin-top: 70px;
-      padding: 1.7rem 2.9vw;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Podcast Editing Apps - Interactive Presentation</title>
+    <link rel="stylesheet" href="style.css">
+<style>
+:root {
+  /* Primitive Color Tokens */
+  --color-white: rgba(255, 255, 255, 1);
+  --color-black: rgba(0, 0, 0, 1);
+  --color-cream-50: rgba(252, 252, 249, 1);
+  --color-cream-100: rgba(255, 255, 253, 1);
+  --color-gray-200: rgba(245, 245, 245, 1);
+  --color-gray-300: rgba(167, 169, 169, 1);
+  --color-gray-400: rgba(119, 124, 124, 1);
+  --color-slate-500: rgba(98, 108, 113, 1);
+  --color-brown-600: rgba(94, 82, 64, 1);
+  --color-charcoal-700: rgba(31, 33, 33, 1);
+  --color-charcoal-800: rgba(38, 40, 40, 1);
+  --color-slate-900: rgba(19, 52, 59, 1);
+  --color-teal-300: rgba(50, 184, 198, 1);
+  --color-teal-400: rgba(45, 166, 178, 1);
+  --color-teal-500: rgba(33, 128, 141, 1);
+  --color-teal-600: rgba(29, 116, 128, 1);
+  --color-teal-700: rgba(26, 104, 115, 1);
+  --color-teal-800: rgba(41, 150, 161, 1);
+  --color-red-400: rgba(255, 84, 89, 1);
+  --color-red-500: rgba(192, 21, 47, 1);
+  --color-orange-400: rgba(230, 129, 97, 1);
+  --color-orange-500: rgba(168, 75, 47, 1);
 
-    /* --- Dashboard --- */
-    .dashboard-cards {
-      display: flex; gap: 2.5em; margin-bottom: 2.2em;
-      flex-wrap: wrap;
-    }
-    .db-card {
-      flex: 1 1 180px;
-      min-width: 170px;
-      background: var(--panel);
-      padding: 1.3em 1.6em;
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      display: flex; flex-direction: column; align-items: flex-start;
-      gap: .34em; min-height: 103px;
-    }
-    .db-card .db-icon {
-      font-size: 1.35em;
-      background: var(--primary);
-      color: #fff;
-      padding: .52em;
-      border-radius: .65em;
-      margin-bottom: .8em;
-    }
-    .db-card .stat { font-weight: 700; font-size: 1.32em;}
-    .recent-episodes {
-      background: var(--panel);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.4em 1.1em 1.3em 1.1em;
-      margin-bottom: 2em;
-    }
-    .recent-episodes h3 { margin-bottom: .9em; }
-    .recent-episodes ul { list-style: none; margin: 0; padding: 0;}
-    .recent-episodes li {
-      display: flex; align-items: center; gap: .9em; 
-      border-bottom: 1px solid #eee;
-      padding: .64em 0;
-    }
-    .recent-episodes li:last-child { border-bottom: none;}
-    .recent-episodes .ep-status {
-      background: #dedcff;
-      color: var(--primary);
-      font-weight: 500;
-      padding: 2px 9px;
-      border-radius: .7em;
-      font-size: .8em;
-      margin-left: .6em;
-    }
-    /* Calendar */
-    .calendar {
-      margin-top: 1.2em;
-      padding: 1.1em;
-      background: var(--panel);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .calendar h3 { margin-bottom: .64em;}
-    .calendar table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: .98em;
-    }
-    .calendar th, .calendar td {
-      width: 14.2%; text-align: center; padding: .3em .1em;
-      border-radius: 5px;
-    }
-    .calendar .today {
-      background: var(--primary);
-      color: #fff;
-      font-weight: bold;
-    }
-    .calendar .has-session {
-      background: var(--accent); color: #fff;
-    }
-    /* --- Podcast Manager --- */
-    .podcast-header {
-      display: flex; justify-content: space-between; align-items: center;
-      margin-bottom: 1.6em;
-    }
-    .podcast-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit,minmax(230px,1fr));
-      gap: 1.4em;
-      margin-bottom: 2em;
-    }
-    .podcast-card {
-      background: var(--panel);
-      box-shadow: var(--shadow);
-      border-radius: var(--radius);
-      padding: 1.2em;
-      display: flex; flex-direction: column;
-      gap: .7em;
-      position: relative;
-      min-height: 215px;
-    }
-    .podcast-card img { width: 100%; border-radius: 10px;}
-    .podcast-card .actions {
-      position: absolute; top: 13px; right: 13px;
-    }
-    .filter-bar {
-      display: flex; gap: 1em; flex-wrap: wrap;
-      margin-bottom: 1em;
-    }
-    .filter-bar select, .filter-bar input {
-      background: #f3f4fa;
-      border: 1px solid #e2e2ec;
-      border-radius: .6rem;
-      padding: .55em 1em;
-      font-size: 1.01em;
-    }
-    /* --- Episode Editor --- */
-    .editor-layout {
-      display: flex; gap: 2.5em; margin-bottom: 2em;
-    }
-    .timeline-section {
-      flex: 3 2 400px;
-      background: var(--panel);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.3em;
-      min-width: 0;
-    }
-    .waveform {
-      background: repeating-linear-gradient(
-        90deg, #d1d1ea, #fff 7px, #edebfa 18px
-      );
-      height: 54px;
-      width: 100%;
-      border-radius: 9px;
-      margin-bottom: 14px;
-      display: block;
-    }
-    .timeline-controls {
-      display: flex; align-items: center; gap: 1.5em; margin-bottom: 1em;
-    }
-    .props-panel {
-      flex: 2 3 320px;
-      background: var(--panel);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-      padding: 1.5em 1.3em;
-      min-width: 0;
-      display: flex; flex-direction: column; gap: 1.2em;
-    }
-    .props-panel textarea, .props-panel input, .props-panel select {
-      width: 100%; border-radius: .65em; border: 1px solid #e1e1f0; padding: .55em; font-size: 1em;
-      resize: vertical;
-    }
-    .props-panel label { font-size: 1em; font-weight: 500; color: var(--muted);}
-    .props-panel .section-title { font-weight: 700; margin-top: 1em; }
-    /* --- Recording Studio --- */
-    .studio-bg {
-      background: var(--dark-bg);
-      min-height: 100vh; width: 100vw;
-      color: #fff; overflow-x: hidden;
-      padding: 0;
-      margin: 0;
-    }
-    .studio-topbar {
-      background: var(--dark-panel);
-      padding: .8em 2em;
-      display: flex; align-items: center; justify-content: space-between;
-      border-bottom: 1px solid #23223b;
-      font-size: 1.13em;
-    }
-    .studio-status { display: flex; gap: 2em; align-items: center;}
-    .studio-status .red-dot {
-      width: 12px; height: 12px; background: var(--danger); border-radius: 50%; display: inline-block; margin-right: .5em;
-    }
-    .studio-main { min-height: 63vh; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-    .video-grid {
-      display: flex; gap: 2em; justify-content: center; align-items: center;
-      margin-top: 1.7em;
-    }
-    .participant {
-      width: 170px; height: 130px;
-      background: #1a1c29;
-      border-radius: 1em;
-      box-shadow: 0 1px 7px #12132242;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      color: #d5d8fc; position: relative;
-    }
-    .participant .avatar { width: 47px; height: 47px; border: 2.5px solid var(--primary);}
-    .audio-meter {
-      width: 88%; height: 6px;
-      background: #2f3148; border-radius: 4px;
-      overflow: hidden;
-      margin-top: .8em;
-      margin-bottom: .3em;
-      margin-left: auto; margin-right: auto;
-    }
-    .audio-meter-bar {
-      width: 50%; height: 100%; background: var(--accent);
-      border-radius: 4px;
-      transition: width 0.25s;
-    }
-    .recording-local {
-      margin-top: 2em; color: #f3d503;
-      font-size: .97em; text-shadow: 0 1px #000;
-    }
-    .studio-bottom-controls {
-      position: fixed; bottom: 0; left: 50vw; transform: translateX(-50%);
-      background: var(--dark-panel);
-      border-radius: 1.5em;
-      box-shadow: 0 1px 17px #16172952;
-      display: flex; gap: 1.8em; padding: .93em 2.8em; margin-bottom: 2em;
-      justify-content: center; align-items: center;
-    }
-    .studio-bottom-controls button {
-      font-size: 1.4em; background: none; border: none; color: #fff;
-      cursor: pointer; outline: none; border-radius: 50%; transition: background .2s;
-      padding: .35em .6em;
-    }
-    .studio-bottom-controls .active { background: #353759; }
-    .studio-bottom-controls .danger { color: var(--danger);}
-    /* Responsive */
-    @media (max-width:1020px) {
-      .editor-layout { flex-direction: column; gap: 2.3em;}
-      .main-content { padding-left: .3em; padding-right: .3em;}
-      .sidebar { width: 92px; }
-      .main-content, .header { margin-left: 92px;}
-      .sidebar .nav-link { font-size: 1.18em; padding: .8em .7em;}
-      .sidebar .nav-link span { display: none;}
-      .sidebar .nav-link.active, .sidebar .nav-link:hover { background: #eaeafc; }
-    }
-    @media (max-width:700px) {
-      .dashboard-cards { flex-direction: column; gap: 1em;}
-      .podcast-grid { grid-template-columns: 1fr; }
-      .studio-bottom-controls { padding: .65em .6em;}
-    }
-    @media (max-width:550px) {
-      .main-content, .header { margin-left: 0;}
-      .sidebar { position: static; width: 100vw; height: auto; flex-direction: row; }
-      .sidebar .nav-link { font-size: 1.0em; padding: .55em .15em; justify-content: center;}
-    }
-  </style>
+  /* RGB versions for opacity control */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  --color-slate-500-rgb: 98, 108, 113;
+  --color-red-500-rgb: 192, 21, 47;
+  --color-red-400-rgb: 255, 84, 89;
+  --color-orange-500-rgb: 168, 75, 47;
+  --color-orange-400-rgb: 230, 129, 97;
+
+  /* Background color tokens (Light Mode) */
+  --color-bg-1: rgba(59, 130, 246, 0.08); /* Light blue */
+  --color-bg-2: rgba(245, 158, 11, 0.08); /* Light yellow */
+  --color-bg-3: rgba(34, 197, 94, 0.08); /* Light green */
+  --color-bg-4: rgba(239, 68, 68, 0.08); /* Light red */
+  --color-bg-5: rgba(147, 51, 234, 0.08); /* Light purple */
+  --color-bg-6: rgba(249, 115, 22, 0.08); /* Light orange */
+  --color-bg-7: rgba(236, 72, 153, 0.08); /* Light pink */
+  --color-bg-8: rgba(6, 182, 212, 0.08); /* Light cyan */
+
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+  --color-select-caret: rgba(var(--color-slate-900-rgb), 0.8);
+
+  /* Common style patterns */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for opacity control */
+  --color-success-rgb: 33, 128, 141;
+  --color-error-rgb: 192, 21, 47;
+  --color-warning-rgb: 168, 75, 47;
+  --color-info-rgb: 98, 108, 113;
+
+  /* Typography */
+  --font-family-base: "FKGroteskNeue", "Geist", "Inter", -apple-system,
+    BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-family-mono: "Berkeley Mono", ui-monospace, SFMono-Regular, Menlo,
+    Monaco, Consolas, monospace;
+  --font-size-xs: 11px;
+  --font-size-sm: 12px;
+  --font-size-base: 14px;
+  --font-size-md: 14px;
+  --font-size-lg: 16px;
+  --font-size-xl: 18px;
+  --font-size-2xl: 20px;
+  --font-size-3xl: 24px;
+  --font-size-4xl: 30px;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 550;
+  --font-weight-bold: 600;
+  --line-height-tight: 1.2;
+  --line-height-normal: 1.5;
+  --letter-spacing-tight: -0.01em;
+
+  /* Spacing */
+  --space-0: 0;
+  --space-1: 1px;
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-6: 6px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+
+  /* Border Radius */
+  --radius-sm: 6px;
+  --radius-base: 8px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.02);
+  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.04),
+    0 2px 4px -1px rgba(0, 0, 0, 0.02);
+  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.04),
+    0 4px 6px -2px rgba(0, 0, 0, 0.02);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.03);
+
+  /* Animation */
+  --duration-fast: 150ms;
+  --duration-normal: 250ms;
+  --ease-standard: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Layout */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+}
+
+/* Dark mode colors */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* RGB versions for opacity control (Dark Mode) */
+    --color-gray-400-rgb: 119, 124, 124;
+    --color-teal-300-rgb: 50, 184, 198;
+    --color-gray-300-rgb: 167, 169, 169;
+    --color-gray-200-rgb: 245, 245, 245;
+
+    /* Background color tokens (Dark Mode) */
+    --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+    --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
+    --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
+    --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
+    --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
+    --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
+    --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
+    --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
+    
+    /* Semantic Color Tokens (Dark Mode) */
+    --color-background: var(--color-charcoal-700);
+    --color-surface: var(--color-charcoal-800);
+    --color-text: var(--color-gray-200);
+    --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+    --color-primary: var(--color-teal-300);
+    --color-primary-hover: var(--color-teal-400);
+    --color-primary-active: var(--color-teal-800);
+    --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+    --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+    --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+    --color-error: var(--color-red-400);
+    --color-success: var(--color-teal-300);
+    --color-warning: var(--color-orange-400);
+    --color-info: var(--color-gray-300);
+    --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+    --color-btn-primary-text: var(--color-slate-900);
+    --color-card-border: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+    --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+      inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    --button-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+    --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+    /* Common style patterns - updated for dark mode */
+    --focus-ring: 0 0 0 3px var(--color-focus-ring);
+    --focus-outline: 2px solid var(--color-primary);
+    --status-bg-opacity: 0.15;
+    --status-border-opacity: 0.25;
+    --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+    /* RGB versions for dark mode */
+    --color-success-rgb: var(--color-teal-300-rgb);
+    --color-error-rgb: var(--color-red-400-rgb);
+    --color-warning-rgb: var(--color-orange-400-rgb);
+    --color-info-rgb: var(--color-gray-300-rgb);
+  }
+}
+
+/* Data attribute for manual theme switching */
+[data-color-scheme="dark"] {
+  /* RGB versions for opacity control (dark mode) */
+  --color-gray-400-rgb: 119, 124, 124;
+  --color-teal-300-rgb: 50, 184, 198;
+  --color-gray-300-rgb: 167, 169, 169;
+  --color-gray-200-rgb: 245, 245, 245;
+
+  /* Colorful background palette - Dark Mode */
+  --color-bg-1: rgba(29, 78, 216, 0.15); /* Dark blue */
+  --color-bg-2: rgba(180, 83, 9, 0.15); /* Dark yellow */
+  --color-bg-3: rgba(21, 128, 61, 0.15); /* Dark green */
+  --color-bg-4: rgba(185, 28, 28, 0.15); /* Dark red */
+  --color-bg-5: rgba(107, 33, 168, 0.15); /* Dark purple */
+  --color-bg-6: rgba(194, 65, 12, 0.15); /* Dark orange */
+  --color-bg-7: rgba(190, 24, 93, 0.15); /* Dark pink */
+  --color-bg-8: rgba(8, 145, 178, 0.15); /* Dark cyan */
+  
+  /* Semantic Color Tokens (Dark Mode) */
+  --color-background: var(--color-charcoal-700);
+  --color-surface: var(--color-charcoal-800);
+  --color-text: var(--color-gray-200);
+  --color-text-secondary: rgba(var(--color-gray-300-rgb), 0.7);
+  --color-primary: var(--color-teal-300);
+  --color-primary-hover: var(--color-teal-400);
+  --color-primary-active: var(--color-teal-800);
+  --color-secondary: rgba(var(--color-gray-400-rgb), 0.15);
+  --color-secondary-hover: rgba(var(--color-gray-400-rgb), 0.25);
+  --color-secondary-active: rgba(var(--color-gray-400-rgb), 0.3);
+  --color-border: rgba(var(--color-gray-400-rgb), 0.3);
+  --color-error: var(--color-red-400);
+  --color-success: var(--color-teal-300);
+  --color-warning: var(--color-orange-400);
+  --color-info: var(--color-gray-300);
+  --color-focus-ring: rgba(var(--color-teal-300-rgb), 0.4);
+  --color-btn-primary-text: var(--color-slate-900);
+  --color-card-border: rgba(var(--color-gray-400-rgb), 0.15);
+  --color-card-border-inner: rgba(var(--color-gray-400-rgb), 0.15);
+  --shadow-inset-sm: inset 0 1px 0 rgba(255, 255, 255, 0.1),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+  --color-border-secondary: rgba(var(--color-gray-400-rgb), 0.2);
+  --color-select-caret: rgba(var(--color-gray-200-rgb), 0.8);
+
+  /* Common style patterns - updated for dark mode */
+  --focus-ring: 0 0 0 3px var(--color-focus-ring);
+  --focus-outline: 2px solid var(--color-primary);
+  --status-bg-opacity: 0.15;
+  --status-border-opacity: 0.25;
+  --select-caret-light: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23134252' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  --select-caret-dark: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23f5f5f5' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+
+  /* RGB versions for dark mode */
+  --color-success-rgb: var(--color-teal-300-rgb);
+  --color-error-rgb: var(--color-red-400-rgb);
+  --color-warning-rgb: var(--color-orange-400-rgb);
+  --color-info-rgb: var(--color-gray-300-rgb);
+}
+
+[data-color-scheme="light"] {
+  /* RGB versions for opacity control (light mode) */
+  --color-brown-600-rgb: 94, 82, 64;
+  --color-teal-500-rgb: 33, 128, 141;
+  --color-slate-900-rgb: 19, 52, 59;
+  
+  /* Semantic Color Tokens (Light Mode) */
+  --color-background: var(--color-cream-50);
+  --color-surface: var(--color-cream-100);
+  --color-text: var(--color-slate-900);
+  --color-text-secondary: var(--color-slate-500);
+  --color-primary: var(--color-teal-500);
+  --color-primary-hover: var(--color-teal-600);
+  --color-primary-active: var(--color-teal-700);
+  --color-secondary: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-secondary-hover: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-secondary-active: rgba(var(--color-brown-600-rgb), 0.25);
+  --color-border: rgba(var(--color-brown-600-rgb), 0.2);
+  --color-btn-primary-text: var(--color-cream-50);
+  --color-card-border: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-card-border-inner: rgba(var(--color-brown-600-rgb), 0.12);
+  --color-error: var(--color-red-500);
+  --color-success: var(--color-teal-500);
+  --color-warning: var(--color-orange-500);
+  --color-info: var(--color-slate-500);
+  --color-focus-ring: rgba(var(--color-teal-500-rgb), 0.4);
+
+  /* RGB versions for light mode */
+  --color-success-rgb: var(--color-teal-500-rgb);
+  --color-error-rgb: var(--color-red-500-rgb);
+  --color-warning-rgb: var(--color-orange-500-rgb);
+  --color-info-rgb: var(--color-slate-500-rgb);
+}
+
+/* Base styles */
+html {
+  font-size: var(--font-size-base);
+  font-family: var(--font-family-base);
+  line-height: var(--line-height-normal);
+  color: var(--color-text);
+  background-color: var(--color-background);
+  -webkit-font-smoothing: antialiased;
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  font-weight: var(--font-weight-semibold);
+  line-height: var(--line-height-tight);
+  color: var(--color-text);
+  letter-spacing: var(--letter-spacing-tight);
+}
+
+h1 {
+  font-size: var(--font-size-4xl);
+}
+h2 {
+  font-size: var(--font-size-3xl);
+}
+h3 {
+  font-size: var(--font-size-2xl);
+}
+h4 {
+  font-size: var(--font-size-xl);
+}
+h5 {
+  font-size: var(--font-size-lg);
+}
+h6 {
+  font-size: var(--font-size-md);
+}
+
+p {
+  margin: 0 0 var(--space-16) 0;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-standard);
+}
+
+a:hover {
+  color: var(--color-primary-hover);
+}
+
+code,
+pre {
+  font-family: var(--font-family-mono);
+  font-size: calc(var(--font-size-base) * 0.95);
+  background-color: var(--color-secondary);
+  border-radius: var(--radius-sm);
+}
+
+code {
+  padding: var(--space-1) var(--space-4);
+}
+
+pre {
+  padding: var(--space-16);
+  margin: var(--space-16) 0;
+  overflow: auto;
+  border: 1px solid var(--color-border);
+}
+
+pre code {
+  background: none;
+  padding: 0;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-8) var(--space-16);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-base);
+  font-weight: 500;
+  line-height: 1.5;
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  border: none;
+  text-decoration: none;
+  position: relative;
+}
+
+.btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.btn--primary {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.btn--primary:hover {
+  background: var(--color-primary-hover);
+}
+
+.btn--primary:active {
+  background: var(--color-primary-active);
+}
+
+.btn--secondary {
+  background: var(--color-secondary);
+  color: var(--color-text);
+}
+
+.btn--secondary:hover {
+  background: var(--color-secondary-hover);
+}
+
+.btn--secondary:active {
+  background: var(--color-secondary-active);
+}
+
+.btn--outline {
+  background: transparent;
+  border: 1px solid var(--color-border);
+  color: var(--color-text);
+}
+
+.btn--outline:hover {
+  background: var(--color-secondary);
+}
+
+.btn--sm {
+  padding: var(--space-4) var(--space-12);
+  font-size: var(--font-size-sm);
+  border-radius: var(--radius-sm);
+}
+
+.btn--lg {
+  padding: var(--space-10) var(--space-20);
+  font-size: var(--font-size-lg);
+  border-radius: var(--radius-md);
+}
+
+.btn--full-width {
+  width: 100%;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Form elements */
+.form-control {
+  display: block;
+  width: 100%;
+  padding: var(--space-8) var(--space-12);
+  font-size: var(--font-size-md);
+  line-height: 1.5;
+  color: var(--color-text);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-base);
+  transition: border-color var(--duration-fast) var(--ease-standard),
+    box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+textarea.form-control {
+  font-family: var(--font-family-base);
+  font-size: var(--font-size-base);
+}
+
+select.form-control {
+  padding: var(--space-8) var(--space-12);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-image: var(--select-caret-light);
+  background-repeat: no-repeat;
+  background-position: right var(--space-12) center;
+  background-size: 16px;
+  padding-right: var(--space-32);
+}
+
+/* Add a dark mode specific caret */
+@media (prefers-color-scheme: dark) {
+  select.form-control {
+    background-image: var(--select-caret-dark);
+  }
+}
+
+/* Also handle data-color-scheme */
+[data-color-scheme="dark"] select.form-control {
+  background-image: var(--select-caret-dark);
+}
+
+[data-color-scheme="light"] select.form-control {
+  background-image: var(--select-caret-light);
+}
+
+.form-control:focus {
+  border-color: var(--color-primary);
+  outline: var(--focus-outline);
+}
+
+.form-label {
+  display: block;
+  margin-bottom: var(--space-8);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.form-group {
+  margin-bottom: var(--space-16);
+}
+
+/* Card component */
+.card {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: box-shadow var(--duration-normal) var(--ease-standard);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card__body {
+  padding: var(--space-16);
+}
+
+.card__header,
+.card__footer {
+  padding: var(--space-16);
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+/* Status indicators - simplified with CSS variables */
+.status {
+  display: inline-flex;
+  align-items: center;
+  padding: var(--space-6) var(--space-12);
+  border-radius: var(--radius-full);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+}
+
+.status--success {
+  background-color: rgba(
+    var(--color-success-rgb, 33, 128, 141),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-success);
+  border: 1px solid
+    rgba(var(--color-success-rgb, 33, 128, 141), var(--status-border-opacity));
+}
+
+.status--error {
+  background-color: rgba(
+    var(--color-error-rgb, 192, 21, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-error);
+  border: 1px solid
+    rgba(var(--color-error-rgb, 192, 21, 47), var(--status-border-opacity));
+}
+
+.status--warning {
+  background-color: rgba(
+    var(--color-warning-rgb, 168, 75, 47),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-warning);
+  border: 1px solid
+    rgba(var(--color-warning-rgb, 168, 75, 47), var(--status-border-opacity));
+}
+
+.status--info {
+  background-color: rgba(
+    var(--color-info-rgb, 98, 108, 113),
+    var(--status-bg-opacity)
+  );
+  color: var(--color-info);
+  border: 1px solid
+    rgba(var(--color-info-rgb, 98, 108, 113), var(--status-border-opacity));
+}
+
+/* Container layout */
+.container {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  padding-right: var(--space-16);
+  padding-left: var(--space-16);
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: var(--container-sm);
+  }
+}
+@media (min-width: 768px) {
+  .container {
+    max-width: var(--container-md);
+  }
+}
+@media (min-width: 1024px) {
+  .container {
+    max-width: var(--container-lg);
+  }
+}
+@media (min-width: 1280px) {
+  .container {
+    max-width: var(--container-xl);
+  }
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.gap-4 {
+  gap: var(--space-4);
+}
+.gap-8 {
+  gap: var(--space-8);
+}
+.gap-16 {
+  gap: var(--space-16);
+}
+
+.m-0 {
+  margin: 0;
+}
+.mt-8 {
+  margin-top: var(--space-8);
+}
+.mb-8 {
+  margin-bottom: var(--space-8);
+}
+.mx-8 {
+  margin-left: var(--space-8);
+  margin-right: var(--space-8);
+}
+.my-8 {
+  margin-top: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.p-0 {
+  padding: 0;
+}
+.py-8 {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-8);
+}
+.px-8 {
+  padding-left: var(--space-8);
+  padding-right: var(--space-8);
+}
+.py-16 {
+  padding-top: var(--space-16);
+  padding-bottom: var(--space-16);
+}
+.px-16 {
+  padding-left: var(--space-16);
+  padding-right: var(--space-16);
+}
+
+.block {
+  display: block;
+}
+.hidden {
+  display: none;
+}
+
+/* Accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+:focus-visible {
+  outline: var(--focus-outline);
+  outline-offset: 2px;
+}
+
+/* Dark mode specifics */
+[data-color-scheme="dark"] .btn--outline {
+  border: 1px solid var(--color-border-secondary);
+}
+
+@font-face {
+  font-family: 'FKGroteskNeue';
+  src: url('https://r2cdn.perplexity.ai/fonts/FKGroteskNeue.woff2')
+    format('woff2');
+}
+
+/* END PERPLEXITY DESIGN SYSTEM */
+/* Presentation-specific styles */
+.presentation-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background: linear-gradient(135deg, var(--color-background) 0%, var(--color-surface) 100%);
+}
+
+.presentation-header {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  padding: var(--space-16) var(--space-24);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.presentation-title {
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin: 0 0 var(--space-16) 0;
+  text-align: center;
+}
+
+.slide-nav {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-8);
+  flex-wrap: wrap;
+}
+
+.nav-btn {
+  padding: var(--space-6) var(--space-12);
+  border: none;
+  background: var(--color-secondary);
+  color: var(--color-text);
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.nav-btn:hover {
+  background: var(--color-secondary-hover);
+  transform: translateY(-1px);
+}
+
+.nav-btn.active {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.slides-container {
+  flex: 1;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transform: translateX(100%);
+  transition: all var(--duration-normal) var(--ease-standard);
+  padding: var(--space-32) var(--space-24);
+  overflow-y: auto;
+}
+
+.slide.active {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide.prev {
+  transform: translateX(-100%);
+}
+
+/* Title Slide Styles */
+.title-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  min-height: 70vh;
+}
+
+.title-slide h1 {
+  font-size: var(--font-size-4xl);
+  font-weight: var(--font-weight-bold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+  background: linear-gradient(135deg, var(--color-primary), var(--color-teal-400));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: var(--font-size-xl);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-32);
+  font-weight: var(--font-weight-normal);
+}
+
+.app-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-20);
+  max-width: 1000px;
+  width: 100%;
+}
+
+.app-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  cursor: pointer;
+  transition: all var(--duration-normal) var(--ease-standard);
+  box-shadow: var(--shadow-sm);
+}
+
+.app-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-primary);
+}
+
+.app-card h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+}
+
+.app-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+}
+
+/* App Slide Styles */
+.app-slide {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slide-header {
+  text-align: center;
+  padding: var(--space-24);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-32);
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: inherit;
+  opacity: 0.1;
+  z-index: -1;
+}
+
+.slide-header h2 {
+  font-size: var(--font-size-3xl);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-8);
+}
+
+.app-tagline {
+  font-size: var(--font-size-lg);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-normal);
+  margin: 0;
+  opacity: 0.9;
+}
+
+.slide-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-32);
+}
+
+@media (min-width: 1024px) {
+  .slide-content {
+    grid-template-columns: 1fr 1fr;
+    align-items: start;
+  }
+}
+
+.screenshot-section {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-24);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.screenshot-container {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-20);
+}
+
+.app-screenshot {
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-base);
+  box-shadow: var(--shadow-md);
+  border: 1px solid var(--color-card-border);
+}
+
+.screenshot-caption {
+  background: var(--color-bg-1);
+  padding: var(--space-16);
+  border-radius: var(--radius-base);
+  border: 1px solid var(--color-card-border-inner);
+}
+
+.screenshot-caption h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-12);
+}
+
+.screenshot-caption ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.screenshot-caption li {
+  padding: var(--space-4) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+.screenshot-caption li:last-child {
+  border-bottom: none;
+}
+
+.screenshot-caption strong {
+  color: var(--color-text);
+  font-weight: var(--font-weight-medium);
+}
+
+/* Interface Mockup Styles */
+.interface-mockup {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+}
+
+.mockup-header {
+  background: var(--color-bg-2);
+  padding: var(--space-12) var(--space-16);
+  font-weight: var(--font-weight-medium);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  border-bottom: 1px solid var(--color-card-border-inner);
+}
+
+.mockup-content {
+  padding: var(--space-20);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.mockup-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.mockup-item {
+  padding: var(--space-8) var(--space-12);
+  background: var(--color-secondary);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+}
+
+.mockup-item.active {
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+}
+
+.mockup-main {
+  background: var(--color-bg-3);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  min-height: 120px;
+}
+
+.mockup-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.mockup-track {
+  height: 24px;
+  background: linear-gradient(90deg, var(--color-primary), var(--color-teal-400));
+  border-radius: var(--radius-sm);
+  opacity: 0.7;
+}
+
+.mockup-track:nth-child(2) {
+  width: 60%;
+  background: linear-gradient(90deg, var(--color-warning), var(--color-orange-400));
+}
+
+.mockup-tools {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+
+.tool-item {
+  padding: var(--space-6) var(--space-10);
+  background: var(--color-bg-5);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  color: var(--color-text);
+  text-align: center;
+  border: 1px solid var(--color-card-border-inner);
+}
+
+/* GarageBand Mockup Styles */
+.garageband-mockup .mockup-content {
+  align-items: center;
+  text-align: center;
+  gap: var(--space-24);
+}
+
+.track-options {
+  display: flex;
+  gap: var(--space-16);
+  justify-content: center;
+}
+
+.track-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--space-8);
+  padding: var(--space-16);
+  border-radius: var(--radius-base);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+  border: 2px solid transparent;
+}
+
+.track-option:hover {
+  background: var(--color-secondary);
+}
+
+.track-option.active {
+  border-color: var(--color-primary);
+  background: var(--color-bg-1);
+}
+
+.track-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-base);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: var(--font-weight-bold);
+  font-size: var(--font-size-sm);
+}
+
+.track-icon.software {
+  background: linear-gradient(135deg, #8B5CF6, #A855F7);
+}
+
+.track-icon.software::after {
+  content: '♪';
+}
+
+.track-icon.audio {
+  background: linear-gradient(135deg, #EF4444, #F87171);
+}
+
+.track-icon.audio::after {
+  content: '🎤';
+}
+
+.track-icon.drummer {
+  background: linear-gradient(135deg, #F59E0B, #FBBF24);
+}
+
+.track-icon.drummer::after {
+  content: '🥁';
+}
+
+.track-label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.input-selection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+  align-items: center;
+}
+
+.input-selection label {
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text);
+}
+
+.input-selection select {
+  min-width: 200px;
+}
+
+.mockup-buttons {
+  display: flex;
+  gap: var(--space-12);
+  justify-content: center;
+}
+
+/* Info Sections */
+.info-sections {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-24);
+}
+
+.features-section {
+  background: var(--color-surface);
+  border-radius: var(--radius-lg);
+  padding: var(--space-20);
+  border: 1px solid var(--color-card-border);
+  box-shadow: var(--shadow-sm);
+}
+
+.features-section h3 {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-16);
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.features-section h3::before {
+  content: '⚡';
+  font-size: var(--font-size-lg);
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: var(--space-8);
+}
+
+.features-list li {
+  padding: var(--space-8) var(--space-12);
+  background: var(--color-bg-1);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-sm);
+  color: var(--color-text);
+  border-left: 3px solid var(--color-primary);
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.features-list li:hover {
+  background: var(--color-bg-2);
+  transform: translateX(4px);
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-16);
+}
+
+@media (min-width: 768px) {
+  .details-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.detail-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-card-border);
+  border-radius: var(--radius-base);
+  padding: var(--space-16);
+  box-shadow: var(--shadow-xs);
+}
+
+.detail-card h4 {
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text);
+  margin-bottom: var(--space-8);
+  display: flex;
+  align-items: center;
+  gap: var(--space-6);
+}
+
+.detail-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--font-size-sm);
+  margin: 0;
+  line-height: var(--line-height-normal);
+}
+
+.detail-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.detail-card li {
+  padding: var(--space-4) 0;
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  position: relative;
+  padding-left: var(--space-16);
+}
+
+.detail-card li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--color-primary);
+  font-weight: var(--font-weight-bold);
+}
+
+.detail-card.pros h4::before {
+  content: '✓';
+  color: var(--color-success);
+}
+
+.detail-card.cons h4::before {
+  content: '⚠';
+  color: var(--color-warning);
+}
+
+.detail-card.pros {
+  border-left: 3px solid var(--color-success);
+}
+
+.detail-card.cons {
+  border-left: 3px solid var(--color-warning);
+}
+
+/* Slide Controls */
+.slide-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--space-20);
+  padding: var(--space-20);
+  background: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+}
+
+.control-btn {
+  padding: var(--space-8) var(--space-16);
+  background: var(--color-primary);
+  color: var(--color-btn-primary-text);
+  border: none;
+  border-radius: var(--radius-base);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  cursor: pointer;
+  transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.control-btn:hover {
+  background: var(--color-primary-hover);
+  transform: translateY(-1px);
+}
+
+.control-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.control-btn:disabled:hover {
+  transform: none;
+  background: var(--color-primary);
+}
+
+.slide-counter {
+  font-size: var(--font-size-sm);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-8) var(--space-16);
+  background: var(--color-secondary);
+  border-radius: var(--radius-base);
+}
+
+#currentSlide {
+  color: var(--color-primary);
+  font-weight: var(--font-weight-semibold);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .presentation-header {
+    padding: var(--space-12) var(--space-16);
+  }
+  
+  .presentation-title {
+    font-size: var(--font-size-xl);
+    margin-bottom: var(--space-12);
+  }
+  
+  .slide-nav {
+    gap: var(--space-4);
+  }
+  
+  .nav-btn {
+    font-size: var(--font-size-xs);
+    padding: var(--space-4) var(--space-8);
+  }
+  
+  .slide {
+    padding: var(--space-16);
+  }
+  
+  .title-slide h1 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  .subtitle {
+    font-size: var(--font-size-lg);
+  }
+  
+  .app-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+  
+  .slide-header {
+    padding: var(--space-16);
+    margin-bottom: var(--space-20);
+  }
+  
+  .slide-header h2 {
+    font-size: var(--font-size-2xl);
+  }
+  
+  .app-tagline {
+    font-size: var(--font-size-md);
+  }
+  
+  .slide-content {
+    gap: var(--space-20);
+  }
+  
+  .screenshot-section {
+    padding: var(--space-16);
+  }
+  
+  .track-options {
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-12);
+  }
+  
+  .track-option {
+    width: 100%;
+    max-width: 200px;
+  }
+  
+  .slide-controls {
+    padding: var(--space-16);
+    gap: var(--space-12);
+  }
+  
+  .control-btn {
+    font-size: var(--font-size-xs);
+    padding: var(--space-6) var(--space-12);
+  }
+}
+
+/* Animation enhancements */
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide.entering-right {
+  animation: slideInRight var(--duration-normal) var(--ease-standard);
+}
+
+.slide.entering-left {
+  animation: slideInLeft var(--duration-normal) var(--ease-standard);
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+  .slide {
+    transition: opacity var(--duration-fast) ease;
+  }
+  
+  .slide.entering-right,
+  .slide.entering-left {
+    animation: none;
+  }
+  
+  .app-card:hover,
+  .control-btn:hover,
+  .nav-btn:hover {
+    transform: none;
+  }
+}
+</style>
 </head>
 <body>
-<!-- Sidebar Navigation -->
-<div class="sidebar">
-  <div>
-    <a href="#" class="nav-link active"><i class="fa fa-chart-line"></i><span>Dashboard</span></a>
-    <a href="#" class="record-btn"><i class="fa fa-microphone"></i> <span>Record New</span></a>
-  </div>
-  <div class="nav-group">
-    <a href="#" class="nav-link"><i class="fa fa-podcast"></i> <span>My Podcasts</span></a>
-    <a href="#" class="nav-link"><i class="fa fa-chart-bar"></i> <span>Analytics</span></a>
-    <a href="#" class="nav-link"><i class="fa fa-gear"></i> <span>Settings</span></a>
-  </div>
-</div>
-<!-- Header -->
-<div class="header">
-  <div><strong>PodCreator Studio</strong></div>
-  <div class="profile-area">
-    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="avatar" alt="Profile"/>
-    <div class="notify">
-      <i class="fa fa-bell"></i>
-      <span class="badge">3</span>
-    </div>
-    <select class="dropdown">
-      <option>Settings & Account</option>
-      <option>Subscription</option>
-      <option>Logout</option>
-    </select>
-  </div>
-</div>
-<!-- Main Content -->
-<main class="main-content" style="min-height:100vh;">
-  <!-- DASHBOARD SCREEN -->
-  <section>
-    <div class="dashboard-cards">
-      <div class="db-card">
-        <div class="db-icon"><i class="fa fa-file-audio"></i></div>
-        <span class="stat">54</span>
-        <span class="muted">Episodes</span>
-      </div>
-      <div class="db-card">
-        <div class="db-icon"><i class="fa fa-headphones"></i></div>
-        <span class="stat">12.5k</span>
-        <span class="muted">Listeners</span>
-      </div>
-      <div class="db-card">
-        <div class="db-icon"><i class="fa fa-dollar-sign"></i></div>
-        <span class="stat">$1,230</span>
-        <span class="muted">Revenue</span>
-      </div>
-    </div>
-    <div class="recent-episodes">
-      <h3>Recent Episodes</h3>
-      <ul>
-        <li>
-          <i class="fa fa-check-circle" style="color:var(--accent)"></i>
-          <div>
-            <strong>The Future of AI</strong>
-            <span class="ep-status">Published</span>
-            <span class="muted">· 5 days ago</span>
-          </div>
-        </li>
-        <li>
-          <i class="fa fa-clock" style="color:var(--primary)"></i>
-          <div>
-            <strong>Remote Work Deep Dive</strong>
-            <span class="ep-status" style="background:#fffbe0; color:#b98900;">Draft</span>
-            <span class="muted">· 2 hours ago</span>
-          </div>
-        </li>
-        <li>
-          <i class="fa fa-bolt" style="color:var(--danger)"></i>
-          <div>
-            <strong>How to Monetize</strong>
-            <span class="ep-status">Published</span>
-            <span class="muted">· 1 week ago</span>
-          </div>
-        </li>
-      </ul>
-    </div>
-    <div class="calendar">
-      <h3>Recording Session Calendar</h3>
-      <table>
-        <tr>
-          <th>Mon</th><th>Tue</th><th>Wed</th><th>Thu</th><th>Fri</th><th>Sat</th><th>Sun</th>
-        </tr>
-        <tr>
-          <td>1</td>
-          <td class="today">2</td>
-          <td>3</td>
-          <td class="has-session">4</td>
-          <td>5</td>
-          <td>6</td>
-          <td>7</td>
-        </tr>
-        <tr>
-          <td>8</td>
-          <td>9</td>
-          <td class="has-session">10</td>
-          <td>11</td>
-          <td>12</td>
-          <td>13</td>
-          <td>14</td>
-        </tr>
-        <!-- More rows as needed -->
-      </table>
-    </div>
-  </section>
+    <div class="presentation-container">
+        <!-- Navigation Header -->
+        <header class="presentation-header">
+            <h1 class="presentation-title">Podcast Editing Apps</h1>
+            <nav class="slide-nav">
+                <button class="nav-btn" data-slide="0">Home</button>
+                <button class="nav-btn" data-slide="1">Riverside.fm</button>
+                <button class="nav-btn" data-slide="2">Spotify</button>
+                <button class="nav-btn" data-slide="3">Descript</button>
+                <button class="nav-btn" data-slide="4">Podcastle</button>
+                <button class="nav-btn" data-slide="5">SquadCast</button>
+                <button class="nav-btn" data-slide="6">Zencastr</button>
+                <button class="nav-btn" data-slide="7">Audacity</button>
+                <button class="nav-btn" data-slide="8">GarageBand</button>
+            </nav>
+        </header>
 
-  <!-- == PODCAST MANAGER SCREEN == -->
-  <section style="margin-top:3.3em;">
-    <div class="podcast-header">
-      <h2>My Podcasts</h2>
-      <button class="btn-accent"><i class="fa fa-plus"></i> Create New</button>
-    </div>
-    <div class="filter-bar">
-      <select>
-        <option>Status: All</option>
-        <option>Published</option>
-        <option>Draft</option>
-      </select>
-      <select>
-        <option>Category: All</option>
-        <option>Business</option>
-        <option>Technology</option>
-        <option>Education</option>
-      </select>
-      <input type="text" placeholder="Search podcasts..."/>
-      <i class="fa fa-search" style="margin-left:-1.6em;color:#aaa;pointer-events:none;"></i>
-    </div>
-    <div class="podcast-grid">
-      <div class="podcast-card">
-        <img src="https://picsum.photos/210/110?random=1" alt="Podcast Cover"/>
-        <div class="actions">
-          <i class="fa fa-ellipsis-v"></i>
-        </div>
-        <strong>The Business Innovators</strong>
-        <span class="badge">12</span> <span class="muted">episodes</span>
-        <span class="muted">Last updated: 2d ago</span>
-      </div>
-      <div class="podcast-card">
-        <img src="https://picsum.photos/210/110?random=2" alt="Podcast Cover"/>
-        <div class="actions">
-          <i class="fa fa-ellipsis-v"></i>
-        </div>
-        <strong>Tech & Trends</strong>
-        <span class="badge">21</span> <span class="muted">episodes</span>
-        <span class="muted">Last updated: 5d ago</span>
-      </div>
-      <div class="podcast-card">
-        <img src="https://picsum.photos/210/110?random=3" alt="Podcast Cover"/>
-        <div class="actions">
-          <i class="fa fa-ellipsis-v"></i>
-        </div>
-        <strong>Education Unlock</strong>
-        <span class="badge">5</span> <span class="muted">episodes</span>
-        <span class="muted">Last updated: 1h ago</span>
-      </div>
-    </div>
-  </section>
+        <!-- Slides Container -->
+        <main class="slides-container">
+            <!-- Title Slide -->
+            <section class="slide active" id="slide-0">
+                <div class="title-slide">
+                    <h1>Professional Podcast Editing Applications</h1>
+                    <p class="subtitle">A comprehensive comparison of 8 leading podcast editing platforms</p>
+                    <div class="app-grid">
+                        <div class="app-card" data-slide="1" style="border-left: 4px solid #FF6B35;">
+                            <h3>Riverside.fm</h3>
+                            <p>Professional remote recording</p>
+                        </div>
+                        <div class="app-card" data-slide="2" style="border-left: 4px solid #1DB954;">
+                            <h3>Spotify for Creators</h3>
+                            <p>Free hosting & distribution</p>
+                        </div>
+                        <div class="app-card" data-slide="3" style="border-left: 4px solid #8B5CF6;">
+                            <h3>Descript</h3>
+                            <p>AI-powered text-based editing</p>
+                        </div>
+                        <div class="app-card" data-slide="4" style="border-left: 4px solid #FF4081;">
+                            <h3>Podcastle</h3>
+                            <p>AI-powered creation platform</p>
+                        </div>
+                        <div class="app-card" data-slide="5" style="border-left: 4px solid #00B8D4;">
+                            <h3>SquadCast</h3>
+                            <p>Broadcast-quality recording</p>
+                        </div>
+                        <div class="app-card" data-slide="6" style="border-left: 4px solid #4CAF50;">
+                            <h3>Zencastr</h3>
+                            <p>Complete podcasting ecosystem</p>
+                        </div>
+                        <div class="app-card" data-slide="7" style="border-left: 4px solid #1976D2;">
+                            <h3>Audacity</h3>
+                            <p>Free open-source editing</p>
+                        </div>
+                        <div class="app-card" data-slide="8" style="border-left: 4px solid #FF9500;">
+                            <h3>GarageBand</h3>
+                            <p>Apple's user-friendly solution</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-  <!-- == EPISODE EDITOR SCREEN == -->
-  <section style="margin-top:3.3em;">
-    <h2>Episode Editor</h2>
-    <div class="editor-layout">
-      <div class="timeline-section">
-        <div class="section-title">Timeline</div>
-        <div class="waveform"></div>
-        <div class="timeline-controls">
-          <button class="btn-outline"><i class="fa fa-play"></i></button>
-          <button class="btn-outline"><i class="fa fa-scissors"></i> Cut</button>
-          <button class="btn-outline"><i class="fa fa-music"></i> Add Music</button>
-        </div>
-      </div>
-      <form class="props-panel">
-        <div class="section-title">Episode Properties</div>
-        <label>Title <input type="text" value="The Future of AI"/></label>
-        <label>Description <textarea rows="2">Conversation about the future of artificial intelligence...</textarea></label>
-        <label>Show Notes <textarea rows="2">- Guest: Lisa Chen
-- References: ...</textarea></label>
-        <label>Publish Settings <input type="datetime-local" value="2024-07-24T11:30"/></label>
-        <label>Export Options
-          <select>
-            <option>Audio Only</option>
-            <option>Video Only</option>
-            <option>Audio + Video</option>
-          </select>
-        </label>
-        <button class="btn" style="align-self:flex-end;">Save Episode</button>
-      </form>
-    </div>
-  </section>
-</main>
+            <!-- Riverside.fm Slide -->
+            <section class="slide" id="slide-1">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-4), var(--color-bg-6));">
+                        <h2 style="color: #FF6B35;">Riverside.fm</h2>
+                        <p class="app-tagline">Professional remote recording platform with studio-quality output</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="screenshot-container">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1754038622/pplx_project_search_images/03e442c57b755dbb6a4c798c99a21787b71a81f5.jpg" alt="Riverside.fm Interface" class="app-screenshot">
+                                <div class="screenshot-caption">
+                                    <h4>Key Interface Features:</h4>
+                                    <ul>
+                                        <li><strong>Participant Management:</strong> Left panel shows active users in the studio</li>
+                                        <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                                        <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and audio controls</li>
+                                        <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio settings)</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>4K video and 48kHz WAV audio recording</li>
+                                    <li>Progressive uploads with automatic cloud backups</li>
+                                    <li>Magic Editor for automated post-production</li>
+                                    <li>Magic Clips tool for social media content</li>
+                                    <li>Text-based editing capabilities</li>
+                                    <li>Built-in transcription and show notes generation</li>
+                                    <li>Supports up to 8-10 participants</li>
+                                    <li>Live streaming capabilities</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Free plan (2 hours/month), Standard ($15/month), Pro ($24/month), Business (custom pricing)</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Professional podcasters, content creators, businesses</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Studio-quality recording</li>
+                                        <li>Reliable progressive uploads</li>
+                                        <li>AI-powered editing tools</li>
+                                        <li>Professional features</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Can be expensive for heavy users</li>
+                                        <li>Requires good internet for optimal experience</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
 
-<!-- == RECORDING STUDIO DARK-THEME FULLSCREEN DEMO == -->
-<section class="studio-bg" style="display:none" id="studioScreen">
-  <div class="studio-topbar">
-    <div class="studio-status">
-      <span><i class="fa fa-stopwatch"></i> <span id="sessionTimer">00:13:12</span></span>
-      <span><span class="red-dot"></span> Live</span>
-      <span><i class="fa fa-users"></i> 3</span>
+            <!-- Spotify for Creators Slide -->
+            <section class="slide" id="slide-2">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-3), var(--color-bg-1));">
+                        <h2 style="color: #1DB954;">Spotify for Creators</h2>
+                        <p class="app-tagline">Free hosting and distribution platform with video podcast support</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="screenshot-container">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1753837218/pplx_project_search_images/4efe35529e2763f90097d2bbfe7a53ae1049e547.jpg" alt="Spotify Interface" class="app-screenshot">
+                                <div class="screenshot-caption">
+                                    <h4>Interface Highlights:</h4>
+                                    <ul>
+                                        <li><strong>Dark Mode Design:</strong> Clean, modern interface with easy navigation</li>
+                                        <li><strong>Content Separation:</strong> Clear distinction between Music and Podcasts & Shows</li>
+                                        <li><strong>Podcast Discovery:</strong> Featured episodes and personalized recommendations</li>
+                                        <li><strong>Episode Details:</strong> Rich metadata display with host information and descriptions</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>Free hosting and RSS distribution</li>
+                                    <li>Video podcast support with custom thumbnails</li>
+                                    <li>Advanced analytics and audience insights</li>
+                                    <li>Monetization through Spotify Partner Program</li>
+                                    <li>Built-in engagement features (polls, Q&A, comments)</li>
+                                    <li>Browser recording with Riverside integration</li>
+                                    <li>Chapter markers and social clips</li>
+                                    <li>Direct publishing to Spotify ecosystem</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Completely free with monetization opportunities</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>All podcasters seeking distribution and monetization</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Completely free</li>
+                                        <li>Massive Spotify reach</li>
+                                        <li>Video podcast support</li>
+                                        <li>Advanced analytics</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Limited editing capabilities</li>
+                                        <li>Dependent on Spotify ecosystem</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Descript Slide -->
+            <section class="slide" id="slide-3">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-5), var(--color-bg-7));">
+                        <h2 style="color: #8B5CF6;">Descript</h2>
+                        <p class="app-tagline">AI-powered text-based editing platform with advanced transcription</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="screenshot-container">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1751999841/pplx_project_search_images/64d6c5ad3bfd74dcbf4b5ecaaf32d64ce76ae879.jpg" alt="Descript Interface" class="app-screenshot">
+                                <div class="screenshot-caption">
+                                    <h4>Revolutionary Text-Based Editing:</h4>
+                                    <ul>
+                                        <li><strong>Transcript Integration:</strong> Edit audio by modifying the transcribed text</li>
+                                        <li><strong>Speaker Identification:</strong> Color-coded speakers for easy navigation</li>
+                                        <li><strong>Track Inspector:</strong> Right panel with volume and effects controls</li>
+                                        <li><strong>Waveform Timeline:</strong> Visual audio representation synced with transcript</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>Edit audio/video by editing text transcripts</li>
+                                    <li>Overdub technology for AI voice cloning</li>
+                                    <li>Filler word removal and silence detection</li>
+                                    <li>Studio Sound AI for noise reduction</li>
+                                    <li>Multitrack editing with speaker identification</li>
+                                    <li>Remote recording for up to 10 participants</li>
+                                    <li>Eye Contact and Green Screen AI features</li>
+                                    <li>Automatic transcription with 95% accuracy</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Free (1 hour/month), Hobbyist ($12/month), Creator ($24/month), Business ($40/month)</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Content creators, video podcasters, professionals</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Revolutionary text-based editing</li>
+                                        <li>AI-powered features</li>
+                                        <li>Professional transcription</li>
+                                        <li>Comprehensive toolset</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Learning curve for new users</li>
+                                        <li>Can be resource-intensive</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Podcastle Slide -->
+            <section class="slide" id="slide-4">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-7), var(--color-bg-4));">
+                        <h2 style="color: #FF4081;">Podcastle</h2>
+                        <p class="app-tagline">AI-powered all-in-one podcast creation platform</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="interface-mockup">
+                                <div class="mockup-header">Podcastle Dashboard</div>
+                                <div class="mockup-content">
+                                    <div class="mockup-sidebar">
+                                        <div class="mockup-item">Projects</div>
+                                        <div class="mockup-item active">AI Voices</div>
+                                        <div class="mockup-item">Music Library</div>
+                                    </div>
+                                    <div class="mockup-main">
+                                        <div class="mockup-timeline">
+                                            <div class="mockup-track"></div>
+                                            <div class="mockup-track"></div>
+                                        </div>
+                                    </div>
+                                    <div class="mockup-tools">
+                                        <div class="tool-item">Magic Dust AI</div>
+                                        <div class="tool-item">Voice Clone</div>
+                                        <div class="tool-item">Text-to-Speech</div>
+                                    </div>
+                                </div>
+                                <div class="screenshot-caption">
+                                    <h4>AI-First Interface Features:</h4>
+                                    <ul>
+                                        <li><strong>Project Management:</strong> Left sidebar for organizing recordings and projects</li>
+                                        <li><strong>AI Voice Tools:</strong> Access to 1000+ AI voices and voice cloning</li>
+                                        <li><strong>Timeline Editor:</strong> Multi-track editing with visual waveforms</li>
+                                        <li><strong>Enhancement Panel:</strong> Magic Dust AI and automated audio processing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>Text-to-speech with 1000+ AI voices</li>
+                                    <li>Voice cloning technology</li>
+                                    <li>Magic Dust AI audio enhancement</li>
+                                    <li>Automatic transcription and subtitles</li>
+                                    <li>Multi-track recording and editing</li>
+                                    <li>Silence removal and auto-leveling</li>
+                                    <li>Royalty-free music library</li>
+                                    <li>AI-powered content generation</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Free plan available, paid plans for premium features</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Content creators, marketers, educators, businesses</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>AI-first approach</li>
+                                        <li>User-friendly interface</li>
+                                        <li>Comprehensive AI tools</li>
+                                        <li>All-in-one solution</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Requires subscription for advanced AI features</li>
+                                        <li>AI voices may sound synthetic for some use cases</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- SquadCast Slide -->
+            <section class="slide" id="slide-5">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-8), var(--color-bg-3));">
+                        <h2 style="color: #00B8D4;">SquadCast</h2>
+                        <p class="app-tagline">Remote recording platform focused on broadcast-quality audio</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="screenshot-container">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1754038622/pplx_project_search_images/cc60629fcf01a8eb946b1a7692748146e320bd09.jpg" alt="SquadCast Interface" class="app-screenshot">
+                                <div class="screenshot-caption">
+                                    <h4>Professional Recording Environment:</h4>
+                                    <ul>
+                                        <li><strong>Multi-Participant View:</strong> Side-by-side video feeds for all participants</li>
+                                        <li><strong>Recording Controls:</strong> Prominent red stop button and session management</li>
+                                        <li><strong>Integration Options:</strong> Direct editing with Descript from the interface</li>
+                                        <li><strong>Session Management:</strong> Leave session, help, and participant controls</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>4K video and uncompressed audio recording</li>
+                                    <li>Progressive uploads with cloud backup</li>
+                                    <li>Local recording on each device</li>
+                                    <li>Separate tracks for each participant</li>
+                                    <li>Green Room for pre-recording setup</li>
+                                    <li>No-download guest experience</li>
+                                    <li>Backstage feature for producers</li>
+                                    <li>Integration with Descript for editing</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Free (1 hour/month), Hobbyist ($16/month), Creator ($24/month), Business ($50/month)</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Professional podcasters, interview shows, remote teams</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Broadcast quality</li>
+                                        <li>Reliable recording</li>
+                                        <li>Easy guest experience</li>
+                                        <li>Professional features</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>More expensive than alternatives</li>
+                                        <li>Limited editing capabilities</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Zencastr Slide -->
+            <section class="slide" id="slide-6">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-3), var(--color-bg-2));">
+                        <h2 style="color: #4CAF50;">Zencastr</h2>
+                        <p class="app-tagline">Complete podcasting ecosystem with recording, editing, and hosting</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="screenshot-container">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1754038634/pplx_project_search_images/afd6753a1050c466ff12b65fa53044f4af0110f7.jpg" alt="Zencastr Interface" class="app-screenshot">
+                                <div class="screenshot-caption">
+                                    <h4>Complete Recording Dashboard:</h4>
+                                    <ul>
+                                        <li><strong>Episode Management:</strong> Clear episode titles and guest invite links</li>
+                                        <li><strong>Live Audio Monitoring:</strong> Colorful waveforms showing real-time activity</li>
+                                        <li><strong>Participant Status:</strong> Individual panels showing mic and recording status</li>
+                                        <li><strong>Recording Controls:</strong> Stop, pause, and timer with elapsed time display</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>4K video and 16-bit 48kHz WAV audio recording</li>
+                                    <li>Local recording with cloud synchronization</li>
+                                    <li>AI-powered editing with text-based transcript editing</li>
+                                    <li>Live soundboard for real-time enhancements</li>
+                                    <li>Built-in podcast hosting and distribution</li>
+                                    <li>Smart filters for filler word removal</li>
+                                    <li>Separate enhanced tracks for external editing</li>
+                                    <li>Monetization tools and analytics</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Standard ($20/month), Grow ($30/month), Scale ($50/month), Business ($100/month)</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Professional podcasters, content creators, media companies</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>All-in-one platform</li>
+                                        <li>Professional editing tools</li>
+                                        <li>Built-in hosting</li>
+                                        <li>Advanced AI features</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>No free plan</li>
+                                        <li>Higher pricing tier</li>
+                                        <li>Complex for beginners</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audacity Slide -->
+            <section class="slide" id="slide-7">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-1), var(--color-bg-8));">
+                        <h2 style="color: #1976D2;">Audacity</h2>
+                        <p class="app-tagline">Free open-source audio editing software with professional capabilities</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="screenshot-container">
+                                <img src="https://pplx-res.cloudinary.com/image/upload/v1752894551/pplx_project_search_images/b196796a1b0ecdefba4464b5a3d823cece39c799.jpg" alt="Audacity Interface" class="app-screenshot">
+                                <div class="screenshot-caption">
+                                    <h4>Classic Desktop Audio Editor:</h4>
+                                    <ul>
+                                        <li><strong>Waveform Display:</strong> Detailed orange waveform visualization against dark background</li>
+                                        <li><strong>Control Panel:</strong> Traditional play, pause, record, and transport controls</li>
+                                        <li><strong>Audio Meters:</strong> Real-time volume level monitoring and device selection</li>
+                                        <li><strong>Timeline Precision:</strong> Detailed time markers and selection tools for precise editing</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>Multi-track recording and editing</li>
+                                    <li>Extensive plugin support (VST3, Nyquist)</li>
+                                    <li>Advanced audio analysis tools</li>
+                                    <li>Spectogram view for detailed editing</li>
+                                    <li>Cross-platform compatibility</li>
+                                    <li>No watermarks or time limitations</li>
+                                    <li>Noise reduction and audio enhancement</li>
+                                    <li>Support for multiple audio formats</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Completely free and open-source</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Budget-conscious podcasters, students, hobbyists</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Completely free</li>
+                                        <li>No limitations</li>
+                                        <li>Extensive features</li>
+                                        <li>Large community support</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Steeper learning curve</li>
+                                        <li>No built-in collaboration</li>
+                                        <li>Basic interface design</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- GarageBand Slide -->
+            <section class="slide" id="slide-8">
+                <div class="app-slide">
+                    <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-6), var(--color-bg-2));">
+                        <h2 style="color: #FF9500;">GarageBand</h2>
+                        <p class="app-tagline">Apple's user-friendly audio production software for Mac and iOS</p>
+                    </div>
+                    <div class="slide-content">
+                        <div class="screenshot-section">
+                            <div class="interface-mockup garageband-mockup">
+                                <div class="mockup-header">Create a New Track</div>
+                                <div class="mockup-content">
+                                    <div class="track-options">
+                                        <div class="track-option">
+                                            <div class="track-icon software"></div>
+                                            <div class="track-label">Software Instrument</div>
+                                        </div>
+                                        <div class="track-option active">
+                                            <div class="track-icon audio"></div>
+                                            <div class="track-label">Audio</div>
+                                        </div>
+                                        <div class="track-option">
+                                            <div class="track-icon drummer"></div>
+                                            <div class="track-label">Drummer</div>
+                                        </div>
+                                    </div>
+                                    <div class="input-selection">
+                                        <label>Input</label>
+                                        <select>
+                                            <option>Built-in Microphone</option>
+                                        </select>
+                                    </div>
+                                    <div class="mockup-buttons">
+                                        <button class="btn btn--outline">Cancel</button>
+                                        <button class="btn btn--primary">Create</button>
+                                    </div>
+                                </div>
+                                <div class="screenshot-caption">
+                                    <h4>Apple's Signature Clean Interface:</h4>
+                                    <ul>
+                                        <li><strong>Track Creation:</strong> Choose between Software Instrument, Audio, or Drummer tracks</li>
+                                        <li><strong>Input Selection:</strong> Simple dropdown for microphone and audio input selection</li>
+                                        <li><strong>Mac Design Language:</strong> Clean buttons and intuitive layout following Apple's design standards</li>
+                                        <li><strong>Beginner-Friendly:</strong> Template-based approach makes it easy for new users to start</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="info-sections">
+                            <div class="features-section">
+                                <h3>Key Features</h3>
+                                <ul class="features-list">
+                                    <li>Pre-installed on all Apple devices</li>
+                                    <li>Multi-track recording capabilities</li>
+                                    <li>50 instrument sounds and 500 musical loops</li>
+                                    <li>Simple drag-and-drop editing interface</li>
+                                    <li>Built-in effects and audio processing</li>
+                                    <li>Integration with other Apple creative apps</li>
+                                    <li>Template-based workflow</li>
+                                    <li>MIDI support for advanced users</li>
+                                </ul>
+                            </div>
+                            <div class="details-grid">
+                                <div class="detail-card">
+                                    <h4>Pricing</h4>
+                                    <p>Free with Apple devices</p>
+                                </div>
+                                <div class="detail-card">
+                                    <h4>Target Audience</h4>
+                                    <p>Apple users, beginners, musicians transitioning to podcasting</p>
+                                </div>
+                                <div class="detail-card pros">
+                                    <h4>Pros</h4>
+                                    <ul>
+                                        <li>Free with Apple devices</li>
+                                        <li>User-friendly interface</li>
+                                        <li>Good for beginners</li>
+                                        <li>Reliable and stable</li>
+                                    </ul>
+                                </div>
+                                <div class="detail-card cons">
+                                    <h4>Cons</h4>
+                                    <ul>
+                                        <li>Apple ecosystem only</li>
+                                        <li>Limited advanced features</li>
+                                        <li>Music-focused design</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Navigation Controls -->
+        <div class="slide-controls">
+            <button class="control-btn" id="prevBtn">‹ Previous</button>
+            <span class="slide-counter">
+                <span id="currentSlide">1</span> / <span id="totalSlides">9</span>
+            </span>
+            <button class="control-btn" id="nextBtn">Next ›</button>
+        </div>
     </div>
-    <button class="btn-outline"><i class="fa fa-gear"></i></button>
-  </div>
-  <div class="studio-main">
-    <div class="video-grid">
-      <div class="participant">
-        <img class="avatar" src="https://randomuser.me/api/portraits/women/12.jpg"/>
-        <span>Lisa</span>
-        <div class="audio-meter"><div class="audio-meter-bar" style="width:80%"></div></div>
+
+    <script src="app.js"></script>
+<script>
+class PresentationApp {
+  constructor() {
+    this.currentSlide = 0;
+    this.totalSlides = 9;
+    this.slides = document.querySelectorAll('.slide');
+    this.navBtns = document.querySelectorAll('.nav-btn');
+    this.prevBtn = document.getElementById('prevBtn');
+    this.nextBtn = document.getElementById('nextBtn');
+    this.currentSlideDisplay = document.getElementById('currentSlide');
+    this.totalSlidesDisplay = document.getElementById('totalSlides');
+    this.appCards = document.querySelectorAll('.app-card');
+    
+    this.init();
+  }
+
+  init() {
+    this.setupEventListeners();
+    this.updateSlideDisplay();
+    this.updateNavigation();
+    this.handleInitialHash();
+  }
+
+  setupEventListeners() {
+    // Navigation button clicks
+    this.navBtns.forEach((btn, index) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.goToSlide(index);
+      });
+    });
+
+    // Previous/Next button clicks
+    if (this.prevBtn) {
+      this.prevBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.previousSlide();
+      });
+    }
+
+    if (this.nextBtn) {
+      this.nextBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        this.nextSlide();
+      });
+    }
+
+    // App card clicks on title slide
+    this.appCards.forEach(card => {
+      card.addEventListener('click', (e) => {
+        e.preventDefault();
+        const slideIndex = parseInt(card.dataset.slide);
+        if (!isNaN(slideIndex)) {
+          this.goToSlide(slideIndex);
+        }
+      });
+    });
+
+    // Keyboard navigation
+    document.addEventListener('keydown', (e) => this.handleKeyPress(e));
+
+    // Hash change for direct URL navigation
+    window.addEventListener('hashchange', () => this.handleHashChange());
+
+    // Touch/swipe support for mobile
+    this.setupTouchNavigation();
+  }
+
+  setupTouchNavigation() {
+    let startX = 0;
+    let startY = 0;
+    let endX = 0;
+    let endY = 0;
+
+    const slidesContainer = document.querySelector('.slides-container');
+
+    if (slidesContainer) {
+      slidesContainer.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+        startY = e.touches[0].clientY;
+      }, { passive: true });
+
+      slidesContainer.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        endY = e.changedTouches[0].clientY;
+        this.handleSwipe();
+      }, { passive: true });
+    }
+
+    this.handleSwipe = () => {
+      const deltaX = endX - startX;
+      const deltaY = endY - startY;
+      const minSwipeDistance = 50;
+
+      // Only handle horizontal swipes if they're more significant than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > minSwipeDistance) {
+        if (deltaX > 0) {
+          this.previousSlide();
+        } else {
+          this.nextSlide();
+        }
+      }
+    };
+  }
+
+  handleKeyPress(e) {
+    switch(e.key) {
+      case 'ArrowRight':
+      case ' ':
+        e.preventDefault();
+        this.nextSlide();
+        break;
+      case 'ArrowLeft':
+        e.preventDefault();
+        this.previousSlide();
+        break;
+      case 'Home':
+        e.preventDefault();
+        this.goToSlide(0);
+        break;
+      case 'End':
+        e.preventDefault();
+        this.goToSlide(this.totalSlides - 1);
+        break;
+      case 'Escape':
+        e.preventDefault();
+        this.goToSlide(0);
+        break;
+      default:
+        // Handle number keys 0-8 for direct slide navigation
+        if (e.key >= '0' && e.key <= '8') {
+          e.preventDefault();
+          const slideNum = parseInt(e.key);
+          if (slideNum < this.totalSlides) {
+            this.goToSlide(slideNum);
+          }
+        }
+        break;
+    }
+  }
+
+  handleInitialHash() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && hash.startsWith('slide-')) {
+      const slideNum = parseInt(hash.replace('slide-', ''));
+      if (slideNum >= 0 && slideNum < this.totalSlides) {
+        this.goToSlide(slideNum);
+      }
+    }
+  }
+
+  handleHashChange() {
+    const hash = window.location.hash.replace('#', '');
+    if (hash && hash.startsWith('slide-')) {
+      const slideNum = parseInt(hash.replace('slide-', ''));
+      if (slideNum >= 0 && slideNum < this.totalSlides && slideNum !== this.currentSlide) {
+        this.goToSlide(slideNum, false); // Don't update hash to avoid infinite loop
+      }
+    }
+  }
+
+  goToSlide(slideIndex, updateHash = true) {
+    if (slideIndex < 0 || slideIndex >= this.totalSlides || slideIndex === this.currentSlide) {
+      return;
+    }
+
+    console.log(`Navigating from slide ${this.currentSlide} to slide ${slideIndex}`);
+
+    // Remove active class from all slides first
+    this.slides.forEach(slide => {
+      slide.classList.remove('active', 'prev', 'next', 'entering-right', 'entering-left');
+    });
+
+    // Set the new slide as active
+    const newSlide = this.slides[slideIndex];
+    if (newSlide) {
+      newSlide.classList.add('active');
+    }
+
+    this.currentSlide = slideIndex;
+    this.updateNavigation();
+    this.updateSlideDisplay();
+    
+    if (updateHash) {
+      this.updateURL();
+    }
+
+    // Scroll to top of new slide
+    if (newSlide) {
+      newSlide.scrollTop = 0;
+    }
+
+    // Announce slide change for screen readers
+    this.announceSlideChange();
+  }
+
+  nextSlide() {
+    if (this.currentSlide < this.totalSlides - 1) {
+      this.goToSlide(this.currentSlide + 1);
+    }
+  }
+
+  previousSlide() {
+    if (this.currentSlide > 0) {
+      this.goToSlide(this.currentSlide - 1);
+    }
+  }
+
+  updateNavigation() {
+    // Update navigation buttons
+    this.navBtns.forEach((btn, index) => {
+      btn.classList.toggle('active', index === this.currentSlide);
+    });
+
+    // Update prev/next buttons
+    if (this.prevBtn) {
+      this.prevBtn.disabled = this.currentSlide === 0;
+    }
+    if (this.nextBtn) {
+      this.nextBtn.disabled = this.currentSlide === this.totalSlides - 1;
+    }
+  }
+
+  updateSlideDisplay() {
+    if (this.currentSlideDisplay) {
+      this.currentSlideDisplay.textContent = this.currentSlide + 1;
+    }
+    if (this.totalSlidesDisplay) {
+      this.totalSlidesDisplay.textContent = this.totalSlides;
+    }
+  }
+
+  updateURL() {
+    const newHash = `#slide-${this.currentSlide}`;
+    if (window.location.hash !== newHash) {
+      history.replaceState(null, null, newHash);
+    }
+  }
+
+  announceSlideChange() {
+    const slideNames = [
+      'Title slide',
+      'Riverside.fm',
+      'Spotify for Creators',
+      'Descript',
+      'Podcastle',
+      'SquadCast',
+      'Zencastr',
+      'Audacity',
+      'GarageBand'
+    ];
+
+    const announcement = `Now showing slide ${this.currentSlide + 1} of ${this.totalSlides}: ${slideNames[this.currentSlide]}`;
+    
+    // Create or update screen reader announcement
+    let announcer = document.getElementById('slide-announcer');
+    if (!announcer) {
+      announcer = document.createElement('div');
+      announcer.id = 'slide-announcer';
+      announcer.className = 'sr-only';
+      announcer.setAttribute('aria-live', 'polite');
+      announcer.setAttribute('aria-atomic', 'true');
+      document.body.appendChild(announcer);
+    }
+    
+    announcer.textContent = announcement;
+  }
+
+  // Method to handle presentation mode (fullscreen)
+  toggleFullscreen() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        console.log('Error attempting to enable fullscreen:', err);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  }
+
+  // Method to get slide content for external use
+  getCurrentSlideInfo() {
+    const slideNames = [
+      'Home',
+      'Riverside.fm',
+      'Spotify for Creators',
+      'Descript',
+      'Podcastle',
+      'SquadCast',
+      'Zencastr',
+      'Audacity',
+      'GarageBand'
+    ];
+
+    return {
+      index: this.currentSlide,
+      name: slideNames[this.currentSlide],
+      total: this.totalSlides
+    };
+  }
+}
+
+// Enhanced feature interactions
+class PresentationFeatures {
+  constructor(app) {
+    this.app = app;
+    this.init();
+  }
+
+  init() {
+    // Wait a bit for DOM to be fully ready
+    setTimeout(() => {
+      this.setupImageLightbox();
+      this.setupHoverEffects();
+      this.setupProgressIndicator();
+    }, 100);
+  }
+
+  setupImageLightbox() {
+    const screenshots = document.querySelectorAll('.app-screenshot');
+    console.log(`Setting up lightbox for ${screenshots.length} images`);
+    
+    screenshots.forEach((img, index) => {
+      img.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        console.log(`Opening lightbox for image ${index}`);
+        this.openLightbox(e.target);
+      });
+      img.style.cursor = 'pointer';
+      img.title = 'Click to view larger image';
+      img.setAttribute('tabindex', '0');
+    });
+  }
+
+  openLightbox(img) {
+    // Create lightbox overlay
+    const lightbox = document.createElement('div');
+    lightbox.className = 'lightbox-overlay';
+    lightbox.innerHTML = `
+      <div class="lightbox-content">
+        <img src="${img.src}" alt="${img.alt}" class="lightbox-image">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
       </div>
-      <div class="participant">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/52.jpg"/>
-        <span>Mike</span>
-        <div class="audio-meter"><div class="audio-meter-bar" style="width:43%"></div></div>
-      </div>
-      <div class="participant">
-        <img class="avatar" src="https://randomuser.me/api/portraits/men/41.jpg"/>
-        <span>You</span>
-        <div class="audio-meter"><div class="audio-meter-bar" style="width:60%"></div></div>
-      </div>
-    </div>
-    <div class="recording-local">Recording locally...</div>
-  </div>
-  <div class="studio-bottom-controls">
-    <button title="Mic" class="active"><i class="fa fa-microphone"></i></button>
-    <button title="Camera"><i class="fa fa-video"></i></button>
-    <button title="Share Screen"><i class="fa fa-desktop"></i></button>
-    <button title="End Recording" class="danger"><i class="fa fa-stop"></i></button>
-  </div>
-</section>
-<!-- Toggle Studio Screen ON via developer tools, or implement show/hide via JS -->
+    `;
+
+    // Style the lightbox
+    lightbox.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      opacity: 0;
+      transition: opacity 300ms ease;
+    `;
+
+    const content = lightbox.querySelector('.lightbox-content');
+    content.style.cssText = `
+      position: relative;
+      max-width: 90%;
+      max-height: 90%;
+    `;
+
+    const lightboxImg = lightbox.querySelector('.lightbox-image');
+    lightboxImg.style.cssText = `
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 8px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    `;
+
+    const closeBtn = lightbox.querySelector('.lightbox-close');
+    closeBtn.style.cssText = `
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      background: white;
+      border: none;
+      border-radius: 50%;
+      width: 32px;
+      height: 32px;
+      font-size: 18px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+      color: black;
+    `;
+
+    document.body.appendChild(lightbox);
+
+    // Animate in
+    requestAnimationFrame(() => {
+      lightbox.style.opacity = '1';
+    });
+
+    // Close handlers
+    const closeLightbox = () => {
+      lightbox.style.opacity = '0';
+      setTimeout(() => {
+        if (lightbox.parentNode) {
+          document.body.removeChild(lightbox);
+        }
+      }, 300);
+    };
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', function escapeHandler(e) {
+      if (e.key === 'Escape') {
+        closeLightbox();
+        document.removeEventListener('keydown', escapeHandler);
+      }
+    });
+  }
+
+  setupHoverEffects() {
+    // Add subtle hover effects to feature list items
+    const featureItems = document.querySelectorAll('.features-list li');
+    featureItems.forEach(item => {
+      item.addEventListener('mouseenter', () => {
+        item.style.transform = 'translateX(8px)';
+        item.style.boxShadow = 'var(--shadow-sm)';
+      });
+      
+      item.addEventListener('mouseleave', () => {
+        item.style.transform = 'translateX(4px)';
+        item.style.boxShadow = 'none';
+      });
+    });
+  }
+
+  setupProgressIndicator() {
+    // Create progress bar
+    const progressBar = document.createElement('div');
+    progressBar.id = 'presentation-progress';
+    progressBar.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 0%;
+      height: 3px;
+      background: var(--color-primary);
+      z-index: 999;
+      transition: width 300ms ease;
+    `;
+    document.body.appendChild(progressBar);
+
+    // Update progress when slide changes
+    const updateProgress = () => {
+      const progress = ((this.app.currentSlide + 1) / this.app.totalSlides) * 100;
+      progressBar.style.width = `${progress}%`;
+    };
+
+    // Initial update
+    updateProgress();
+
+    // Listen for slide changes by overriding the goToSlide method
+    const originalGoToSlide = this.app.goToSlide.bind(this.app);
+    this.app.goToSlide = (...args) => {
+      originalGoToSlide(...args);
+      setTimeout(updateProgress, 50); // Small delay to ensure slide change is complete
+    };
+  }
+}
+
+// Initialize the application when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+  console.log('DOM Content Loaded - Initializing Presentation App');
+  
+  // Wait a moment for all elements to be ready
+  setTimeout(() => {
+    const app = new PresentationApp();
+    const features = new PresentationFeatures(app);
+
+    // Make app globally available for debugging
+    window.presentationApp = app;
+    window.presentationFeatures = features;
+
+    // Add some helpful console messages
+    console.log('🎯 Presentation App loaded successfully!');
+    console.log('📝 Navigation tips:');
+    console.log('  - Use arrow keys or spacebar to navigate');
+    console.log('  - Press 0-8 to jump to specific slides');
+    console.log('  - Press Home/End to go to first/last slide');
+    console.log('  - Press Escape to return to title slide');
+    console.log('  - Swipe left/right on mobile devices');
+    console.log('  - Click images to view in lightbox');
+    
+    // Test navigation immediately
+    console.log('Testing navigation system...');
+    console.log(`Total slides: ${app.totalSlides}`);
+    console.log(`Current slide: ${app.currentSlide}`);
+    console.log(`Nav buttons found: ${app.navBtns.length}`);
+    console.log(`App cards found: ${app.appCards.length}`);
+  }, 100);
+});
+
+// Handle visibility change to pause/resume features
+document.addEventListener('visibilitychange', () => {
+  if (document.hidden) {
+    // Pause any running animations or timers
+    console.log('Presentation paused (tab not visible)');
+  } else {
+    // Resume if needed
+    console.log('Presentation resumed');
+  }
+});
+
+// Export for potential external use
+if (typeof module !== 'undefined' && module.exports) {
+  module.exports = { PresentationApp, PresentationFeatures };
+}
+</script>
 </body>
 </html>
