@@ -1523,9 +1523,10 @@
     }
 
     .nav-btnImage {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+      /* position: absolute; */
+      /* top: 50%;
+      transform: translateY(-50%); */
+      margin: 10px;
       background: #222;
       color: #fff;
       border: none;
@@ -1535,13 +1536,15 @@
       z-index: 2;
     }
 
-    #prevBtnImage {
-      left: 10px;
+    /* .prevBtnImage {
+      left: 30px;
+      
     }
 
-    #nextBtnImage {
+    .nextBtnImage {
       right: 10px;
-    }
+      
+    } */
 
     /* End Sliding Container and Image */
 
@@ -1658,6 +1661,16 @@
               <h3>GarageBand</h3>
               <p>Apple's user-friendly solution</p>
             </div>
+
+            <div class="app-card" data-slide="9" style="border-left: 4px solid #FF9500;">
+              <h3>Alito</h3>
+              <p>Apple's user-friendly solution</p>
+            </div>
+
+            <div class="app-card" data-slide="10" style="border-left: 4px solid #FF9500;">
+              <h3>Stemyard</h3>
+              <p>Apple's user-friendly solution</p>
+            </div>
           </div>
         </div>
       </section>
@@ -1688,14 +1701,15 @@
                 </div>
               </div>
             </div> -->
+            <!-- Uncomment it -->
             <div class="slider-containerImage">
-              <button id="prevBtnImage" class="nav-btnImage">Previous</button>
-              <div class="slideImage activeImage">
-                <img src="New Photo.png" alt="Image 1">
+              <!-- <button id="prevBtnImage1" class="nav-btnImage prevBtnImage">Previous</button> -->
+              <div class="slideImage1 slideImage activeImage">
+                <img src="/Riverside/1.png" alt="Image 1" class="app-screenshot">
                 <div class="screenshot-caption">
                   <h4>Key Interface Features:</h4>
                   <ul>
-                    <li><strong>1Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Riverside1 Participant Management:</strong> Left panel shows active users in the studio</li>
                     <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
                     <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
                       audio controls</li>
@@ -1704,12 +1718,12 @@
                   </ul>
                 </div>
               </div>
-              <div class="slideImage">
-                <img src="Photo.jpeg" alt="Image 2">
+              <div class="slideImage1 slideImage">
+                <img src="/Riverside/2.png" alt="Image 2" class="app-screenshot">
                 <div class="screenshot-caption">
                   <h4>Key Interface Features:</h4>
                   <ul>
-                    <li><strong>2Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Riverside2 Participant Management:</strong> Left panel shows active users in the studio</li>
                     <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
                     <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
                       audio controls</li>
@@ -1718,12 +1732,12 @@
                   </ul>
                 </div>
               </div>
-              <div class="slideImage">
-                <img src="Photo2.jpeg" alt="Image 3">
+              <div class="slideImage1 slideImage">
+                <img src="/Riverside/3.png" alt="Image 3" class="app-screenshot">
                 <div class="screenshot-caption">
                   <h4>Key Interface Features:</h4>
                   <ul>
-                    <li><strong>3Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Riverside3 Participant Management:</strong> Left panel shows active users in the studio</li>
                     <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
                     <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
                       audio controls</li>
@@ -1732,7 +1746,43 @@
                   </ul>
                 </div>
               </div>
-              <button id="nextBtnImage" class="nav-btnImage">Next</button>
+              <div class="slideImage1 slideImage">
+                <img src="/Riverside/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Riverside4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage1 slideImage">
+                <img src="/Riverside/5.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Riverside5 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage1" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage1" class="nav-btnImage nextBtnImage">Next</button>
+              </div>
+              
             </div>
 
             <div class="info-sections">
@@ -1788,7 +1838,7 @@
             <p class="app-tagline">Free hosting and distribution platform with video podcast support</p>
           </div>
           <div class="slide-content">
-            <div class="screenshot-section">
+            <!-- <div class="screenshot-section">
               <div class="screenshot-container">
                 <img
                   src="https://pplx-res.cloudinary.com/image/upload/v1753837218/pplx_project_search_images/4efe35529e2763f90097d2bbfe7a53ae1049e547.jpg"
@@ -1803,6 +1853,87 @@
                     </li>
                   </ul>
                 </div>
+              </div>
+            </div> -->
+            <div class="slider-containerImage">
+
+              <div class="slideImage2 slideImage activeImage">
+                <img src="https://pplx-res.cloudinary.com/image/upload/v1753837218/pplx_project_search_images/4efe35529e2763f90097d2bbfe7a53ae1049e547.jpg" alt="Image 1" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Spotify1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage2 slideImage">
+                <img src="/Riverside/2.png" alt="Image 2" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Spotify2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage2 slideImage">
+                <img src="/Riverside/3.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Spotify3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage2 slideImage">
+                <img src="/Riverside/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Spotify4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage2 slideImage">
+                <img src="/Riverside/5.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Spotify5 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage2" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage2" class="nav-btnImage nextBtnImage">Next</button>
               </div>
             </div>
             <div class="info-sections">
@@ -1859,7 +1990,7 @@
           </div>
           <div class="slide-content">
             <div class="screenshot-section">
-              <div class="screenshot-container">
+              <!-- <div class="screenshot-container">
                 <img
                   src="https://pplx-res.cloudinary.com/image/upload/v1751999841/pplx_project_search_images/64d6c5ad3bfd74dcbf4b5ecaaf32d64ce76ae879.jpg"
                   alt="Descript Interface" class="app-screenshot">
@@ -1871,6 +2002,277 @@
                     <li><strong>Track Inspector:</strong> Right panel with volume and effects controls</li>
                     <li><strong>Waveform Timeline:</strong> Visual audio representation synced with transcript</li>
                   </ul>
+                </div>
+              </div> -->
+              <!-- Uncomment this -->
+              <div class="slider-containerImage">
+
+                <div class="slideImage3 slideImage activeImage">
+                  <img src="/Descript/1.png" alt="Image 1" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>1Key Interface Features:</h4>
+                    <ul>
+                      <li><strong> Descript1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/2.png" alt="Image 2" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>2Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/3.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>3Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/4.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>4Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/5.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>4Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript5 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/6.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>6Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript6 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/7.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>7Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript7 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/8.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>8Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript8 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/9.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>9Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript9 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/10.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>10Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript10 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/11.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>11Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript11 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/12.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>12Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript12 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/13.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>13Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript13 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/14.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>14Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript14 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/15.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>15Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript15 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/16.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>16Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript16 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage3 slideImage">
+                  <img src="/Descript/17.png" alt="Image 3">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Descript17 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div style="display: flex; justify-content: center;">
+                  <button id="prevBtnImage3" class="nav-btnImage prevBtnImage">Previous</button>
+                  <button id="nextBtnImage3" class="nav-btnImage nextBtnImage">Next</button>
                 </div>
               </div>
             </div>
@@ -1922,11 +2324,13 @@
       <!-- Podcastle Slide -->
       <section class="slide" id="slide-4">
         <div class="app-slide">
+
           <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-7), var(--color-bg-4));">
             <h2 style="color: #FF4081;">Podcastle</h2>
             <p class="app-tagline">AI-powered all-in-one podcast creation platform</p>
           </div>
           <div class="slide-content">
+
             <div class="screenshot-section">
               <div class="interface-mockup">
                 <div class="mockup-header">Podcastle Dashboard</div>
@@ -2000,7 +2404,76 @@
                 </div>
               </div>
             </div>
+            <div class="slider-containerImage">
+
+              <div class="slideImage4 slideImage activeImage">
+                <img src="/Podcastle/1.png" alt="Image 1" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Podcastle1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage4 slideImage">
+                <img src="/Podcastle/2.png" alt="Image 2" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Podcastle2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage4 slideImage">
+                <img src="/Podcastle/3.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Podcastle3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage4 slideImage">
+                <img src="/Podcastle/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Podcastle4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage4" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage4" class="nav-btnImage nextBtnImage">Next</button>
+              </div>
+            </div>
           </div>
+
         </div>
       </section>
 
@@ -2012,7 +2485,7 @@
             <p class="app-tagline">Remote recording platform focused on broadcast-quality audio</p>
           </div>
           <div class="slide-content">
-            <div class="screenshot-section">
+            <!-- <div class="screenshot-section">
               <div class="screenshot-container">
                 <img
                   src="https://pplx-res.cloudinary.com/image/upload/v1754038622/pplx_project_search_images/cc60629fcf01a8eb946b1a7692748146e320bd09.jpg"
@@ -2026,6 +2499,89 @@
                     <li><strong>Session Management:</strong> Leave session, help, and participant controls</li>
                   </ul>
                 </div>
+              </div>
+            </div> -->
+            <div class="slider-containerImage">
+
+              <div class="slideImage5 slideImage activeImage">
+                <img src="/Riverside/1.png" alt="Image 1" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>5Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>SquadCast1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage5 slideImage">
+                <img src="/Riverside/2.png" alt="Image 2" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>SquadCast2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage5 slideImage">
+                <img src="/Riverside/3.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>SquadCast3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage5 slideImage">
+                <img src="/Riverside/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>SquadCast4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage5 slideImage">
+                <img src="/Riverside/5.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>SquadCast5 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage5" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage5" class="nav-btnImage nextBtnImage">Next</button>
               </div>
             </div>
             <div class="info-sections">
@@ -2082,7 +2638,7 @@
           </div>
           <div class="slide-content">
             <div class="screenshot-section">
-              <div class="screenshot-container">
+              <!-- <div class="screenshot-container">
                 <img
                   src="https://pplx-res.cloudinary.com/image/upload/v1754038634/pplx_project_search_images/afd6753a1050c466ff12b65fa53044f4af0110f7.jpg"
                   alt="Zencastr Interface" class="app-screenshot">
@@ -2094,6 +2650,335 @@
                     <li><strong>Participant Status:</strong> Individual panels showing mic and recording status</li>
                     <li><strong>Recording Controls:</strong> Stop, pause, and timer with elapsed time display</li>
                   </ul>
+                </div>
+              </div> -->
+              <!-- Uncomment it -->
+              <div class="slider-containerImage">
+
+                <div class="slideImage6 slideImage activeImage">
+                  <img src="/Zencastr/1.png" alt="Image 1" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/2.png" alt="Image 2" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/3.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/4.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/5.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr5 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/6.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr6 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/7.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr7 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/8.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr8 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/9.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr9 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/10.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr10 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/11.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr11 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/12.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr12 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/13.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr13 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/14.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr14 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/15.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr15 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/16.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr16 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/17.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr17 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/19.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr18 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/19.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr19 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/20.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr20 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage6 slideImage">
+                  <img src="/Zencastr/21.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Zencastr21 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+
+
+
+
+
+
+                <div style="display: flex; justify-content: center;">
+                  <button id="prevBtnImage6" class="nav-btnImage prevBtnImage">Previous</button>
+                  <button id="nextBtnImage6" class="nav-btnImage nextBtnImage">Next</button>
                 </div>
               </div>
             </div>
@@ -2151,7 +3036,7 @@
             <p class="app-tagline">Free open-source audio editing software with professional capabilities</p>
           </div>
           <div class="slide-content">
-            <div class="screenshot-section">
+            <!-- <div class="screenshot-section">
               <div class="screenshot-container">
                 <img
                   src="https://pplx-res.cloudinary.com/image/upload/v1752894551/pplx_project_search_images/b196796a1b0ecdefba4464b5a3d823cece39c799.jpg"
@@ -2167,6 +3052,88 @@
                       editing</li>
                   </ul>
                 </div>
+              </div>
+            </div> -->
+            <div class="slider-containerImage">
+
+              <div class="slideImage7 slideImage activeImage">
+                <img src="/Riverside/1.png" alt="Image 1" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>7Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Audacity1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage7 slideImage">
+                <img src="/Riverside/2.png" alt="Image 2" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Audacity2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage7 slideImage">
+                <img src="/Riverside/3.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Audacity3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage7 slideImage">
+                <img src="/Riverside/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Audacity4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage7 slideImage">
+                <img src="/Riverside/5.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Audacity5 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage7" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage7" class="nav-btnImage nextBtnImage">Next</button>
               </div>
             </div>
             <div class="info-sections">
@@ -2223,6 +3190,7 @@
             <p class="app-tagline">Apple's user-friendly audio production software for Mac and iOS</p>
           </div>
           <div class="slide-content">
+
             <div class="screenshot-section">
               <div class="interface-mockup garageband-mockup">
                 <div class="mockup-header">Create a New Track</div>
@@ -2308,6 +3276,88 @@
                 </div>
               </div>
             </div>
+            <div class="slider-containerImage">
+
+              <div class="slideImage8 slideImage activeImage">
+                <img src="/Riverside/1.png" alt="Image 1" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>7Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>GarageBand1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage8 slideImage">
+                <img src="/Riverside/2.png" alt="Image 2" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>GarageBand2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage8 slideImage">
+                <img src="/Riverside/3.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>GarageBand3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage8 slideImage">
+                <img src="/Riverside/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>GarageBand4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage8 slideImage">
+                <img src="/Riverside/5.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>3Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage8" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage8" class="nav-btnImage nextBtnImage">Next</button>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2316,7 +3366,7 @@
       <section class="slide" id="slide-9">
         <div class="app-slide">
           <div class="slide-header" style="background: linear-gradient(135deg, var(--color-bg-4), var(--color-bg-6));">
-            <h2 style="color: #FF6B35;">Alitu</h2>
+            <h2 style="color: #FF6B35;">Alito</h2>
             <p class="app-tagline">Professional remote recording platform with studio-quality output</p>
           </div>
           <div class="slide-content">
@@ -2338,30 +3388,64 @@
                 </div>
               </div>
             </div> -->
-            <div class="slider-containerImage">
-              <button id="prevBtnImage" class="nav-btnImage">Previous</button>
-              <div class="slideImage activeImage">
-                <img src="New Photo.png" alt="Image 1">
-                <ul>
-                  <li>Item 1 description for image 1</li>
-                  <li>Item 2 description for image 1</li>
-                </ul>
+            <div>
+              <div class="slider-containerImage">
+
+                <div class="slideImage9 slideImage  activeImage">
+                  <img src="Alito/1.png" alt="Image 1" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Alito1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage9 slideImage ">
+                  <img src="Alito/2.png" alt="Image 2" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Alito2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="slideImage9 slideImage">
+                  <img src="Alito/3.png" alt="Image 3" class="app-screenshot">
+                  <div class="screenshot-caption">
+                    <h4>Key Interface Features:</h4>
+                    <ul>
+                      <li><strong>Alito3 Participant Management:</strong> Left panel shows active users in the studio</li>
+                      <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites
+                      </li>
+                      <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                        audio controls</li>
+                      <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                        settings)</li>
+                    </ul>
+                  </div>
+                </div>
+
+                <div style="display: flex; justify-content: center;">
+                  <button id="prevBtnImage9" class="nav-btnImage prevBtnImage">Previous</button>
+                  <button id="nextBtnImage9" class="nav-btnImage nextBtnImage">Next</button>
+                </div>
               </div>
-              <div class="slideImage">
-                <img src="Photo.jpeg" alt="Image 2">
-                <ul>
-                  <li>Item 1 description for image 2</li>
-                  <li>Item 2 description for image 2</li>
-                </ul>
+
+              <div>
+
               </div>
-              <div class="slideImage">
-                <img src="Photo2.jpeg" alt="Image 3">
-                <ul>
-                  <li>Item 1 description for image 3</li>
-                  <li>Item 2 description for image 3</li>
-                </ul>
-              </div>
-              <button id="nextBtnImage" class="nav-btnImage">Next</button>
             </div>
 
             <div class="info-sections">
@@ -2436,29 +3520,86 @@
               </div>
             </div> -->
             <div class="slider-containerImage">
-              <button id="prevBtnImage" class="nav-btnImage">Previous</button>
-              <div class="slideImage activeImage">
-                <img src="New Photo.png" alt="Image 1">
-                <ul>
-                  <li>Item 1 description for image 1</li>
-                  <li>Item 2 description for image 1</li>
-                </ul>
+
+              <div class="slideImage10 slideImage activeImage">
+                <img src="/Riverside/1.png" alt="Image 1" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>7Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Stemyard1 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
               </div>
-              <div class="slideImage">
-                <img src="Photo.jpeg" alt="Image 2">
-                <ul>
-                  <li>Item 1 description for image 2</li>
-                  <li>Item 2 description for image 2</li>
-                </ul>
+              <div class="slideImage10 slideImage">
+                <img src="/Riverside/2.png" alt="Image 2" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Stemyard2 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
               </div>
-              <div class="slideImage">
-                <img src="Photo2.jpeg" alt="Image 3">
-                <ul>
-                  <li>Item 1 description for image 3</li>
-                  <li>Item 2 description for image 3</li>
-                </ul>
+              <div class="slideImage10 slideImage">
+                <img src="/Riverside/3.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>3Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
               </div>
-              <button id="nextBtnImage" class="nav-btnImage">Next</button>
+              <div class="slideImage10 slideImage">
+                <img src="/Riverside/4.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>Stemyard4 Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+              <div class="slideImage10 slideImage">
+                <img src="/Riverside/5.png" alt="Image 3" class="app-screenshot">
+                <div class="screenshot-caption">
+                  <h4>Key Interface Features:</h4>
+                  <ul>
+                    <li><strong>5Participant Management:</strong> Left panel shows active users in the studio</li>
+                    <li><strong>Invite System:</strong> Center panel for sharing recording links and email invites</li>
+                    <li><strong>Recording Controls:</strong> Right panel with quality settings, noise reduction, and
+                      audio controls</li>
+                    <li><strong>Quality Indicators:</strong> Real-time display of recording quality (720p live, audio
+                      settings)</li>
+                  </ul>
+                </div>
+              </div>
+
+
+
+
+
+              <div style="display: flex; justify-content: center;">
+                <button id="prevBtnImage10" class="nav-btnImage prevBtnImage">Previous</button>
+                <button id="nextBtnImage10" class="nav-btnImage nextBtnImage">Next</button>
+              </div>
             </div>
 
             <div class="info-sections">
@@ -2684,7 +3825,14 @@
           return;
         }
 
+
+        slides = document.querySelectorAll(`.slideImage${slideIndex}`)
+
+        currentIndex = 0;
+        showSlide(currentIndex);
+        btnID = slideIndex
         console.log(`Navigating from slide ${this.currentSlide} to slide ${slideIndex}`);
+        console.log("Dives re", slides)
 
         // Remove active class from all slides first
         this.slides.forEach(slide => {
@@ -3047,9 +4195,12 @@
       module.exports = { PresentationApp, PresentationFeatures };
     }
 
-    // Sliding Content and Image
-    const slides = document.querySelectorAll('.slideImage');
-    console.log("Total",slides)
+    // Sliding Content and Image for Riverside
+    let slides = document.querySelectorAll('.slideImage');
+    let btnID = 1;
+    let nextBTNID = null;
+    let preBTNID = null;
+    console.log("Total", slides)
     let currentIndex = 0;
 
     function showSlide(index) {
@@ -3058,17 +4209,27 @@
       });
     }
 
-    document.getElementById('prevBtnImage').addEventListener('click', () => {
-      currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
-      showSlide(currentIndex);
-    });
+    const prevBtns = document.getElementsByClassName('prevBtnImage');
+    for (let btn of prevBtns) {
+      btn.addEventListener('click', () => {
+        currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+        showSlide(currentIndex);
+      });
+    }
 
-    document.getElementById('nextBtnImage').addEventListener('click', () => {
-      currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
-      showSlide(currentIndex);
-    });
+
+    const nextBtns = document.getElementsByClassName('nextBtnImage');
+    for (let btn of nextBtns) {
+      btn.addEventListener('click', () => {
+        currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+        showSlide(currentIndex);
+      });
+    }
+
 
     showSlide(currentIndex); // Initialize
+
+
 
   </script>
 </body>
